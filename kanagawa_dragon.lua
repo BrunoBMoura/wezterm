@@ -1,6 +1,6 @@
 local colors = {
   background = "#181616",
-  brights = {
+  ansi = {
     black   = "#16161d",
     red     = "#c4746e",
     green   = "#87a987",
@@ -12,7 +12,7 @@ local colors = {
     grey    = "#282727",
     orange  = "#b6927b",
   },
-  ansi = {
+  brights = {
     black   = "#727169",
     red     = "#E46876",
     green   = "#8A9A7B",
@@ -38,7 +38,7 @@ return {
     },
     inactive_tab = {
       bg_color = colors.background,
-      fg_color = colors.ansi.black,
+      fg_color = colors.brights.black,
       intensity = "Normal",
       underline = "None",
       italic = false,
