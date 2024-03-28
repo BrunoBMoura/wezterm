@@ -6,7 +6,7 @@ local keys = {}
 local definitions = {
   { key = "LeftArrow",  mods = 'CTRL|SHIFT', action = act.MoveTabRelative(-1) },
   { key = "RightArrow", mods = 'CTRL|SHIFT', action = act.MoveTabRelative(1) },
-  { key = 'H',          mods = 'SHIFT|CTRL', action = act.Search({ Regex = '[a-f0-9]{6,}' }) },
+  { key = 'H',          mods = 'CTRL|SHIFT', action = act.Search({ Regex = '[a-f0-9]{6,}' }) },
   { key = "-",          mods = "ALT",        action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
   { key = "/",          mods = "ALT",        action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
   { key = "r",          mods = "ALT",        action = act.ActivatePaneDirection("Next") },

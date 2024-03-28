@@ -14,12 +14,9 @@ wezterm.on(
   -- tab, tabs, panes, config, hove, max_width
   function(tab)
     local pane = tab.active_pane
-    local program_name = pane.foreground_process_name
-    if program_name == "" then
-      -- If no foreground process name is detected, default to 'bash' or another default
-      return "bash"
-    end
-
+    local fg_process = pane.foreground_process_name
+    -- If no foreground process name is detected, default to "bash".
+    local program_name = fg_process == "" and "bash" or fg_process
     return string.format("[%s] ", helpers.parse_bin_path(program_name))
   end
 )
