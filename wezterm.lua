@@ -9,21 +9,23 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+-- Set the custom key bindings.
+config.keys = require("keys")
+config.colors = require("kanagawa_dragon")
+
 wezterm.on(
   "format-tab-title",
   -- tab, tabs, panes, config, hove, max_width
   function(tab)
     local pane = tab.active_pane
+    local idx = tab.tab_index
     local fg_process = pane.foreground_process_name
     -- If no foreground process name is detected, default to "bash".
     local program_name = fg_process == "" and "bash" or fg_process
-    return string.format("[%s] ", helpers.parse_bin_path(program_name))
+    return string.format("[%s:%s] ", tonumber(idx) + 1, helpers.parse_bin_path(program_name))
   end
 )
 
--- Set the custom key bindings.
-config.keys = require("keys")
-config.colors = require("kanagawa_dragon")
 config.tab_bar_at_bottom = true
 config.audible_bell = "Disabled"
 config.use_fancy_tab_bar = false
