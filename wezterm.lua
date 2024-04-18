@@ -17,12 +17,21 @@ wezterm.on(
   "format-tab-title",
   -- tab, tabs, panes, config, hove, max_width
   function(tab)
-    local pane = tab.active_pane
     local idx = tab.tab_index
-    local fg_process = pane.foreground_process_name
+    local fg_process = tab.active_pane.foreground_process_name
+    local cwd = tostring(tab.active_pane.current_working_dir)
+
     -- If no foreground process name is detected, default to "bash".
-    local program_name = fg_process == "" and "bash" or fg_process
-    return string.format("[%s:%s] ", tonumber(idx) + 1, helpers.parse_bin_path(program_name))
+    fg_process = fg_process == "" and "bash" or fg_process
+    -- If the current working directory is empty, default to "<unknown>".
+    cwd = cwd == "" and "<unknown>" or cwd
+
+    return string.format(
+      "[%s:%s, at %s] ",
+      tonumber(idx) + 1,
+      helpers.parse_bin_path(fg_process),
+      helpers.parse_cwd(cwd)
+    )
   end
 )
 
@@ -32,6 +41,7 @@ config.use_fancy_tab_bar = false
 config.enable_scroll_bar = false
 config.freetype_load_flags = "NO_HINTING"
 config.font_size = 14
+config.tab_max_width = 200
 
 config.font = wezterm.font({
   family = "JetBrainsMono",

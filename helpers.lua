@@ -19,4 +19,9 @@ M.parse_bin_path = function(str)
   return tokens[#tokens]
 end
 
+M.parse_cwd = function(str)
+  local tokens = M.split_string(str, "/")
+  return tokens[#tokens - 1]
+end
+
 return M
