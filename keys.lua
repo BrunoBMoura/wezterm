@@ -10,6 +10,8 @@ local definitions = {
   { key = "-",          mods = "ALT",        action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
   { key = "/",          mods = "ALT",        action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
   { key = "r",          mods = "ALT",        action = act.ActivatePaneDirection("Next") },
+  { key = "j",          mods = "CTRL",       action = act.SendKey({ key = "DownArrow" }) },
+  { key = "k",          mods = "CTRL",       action = act.SendKey({ key = "UpArrow" }) },
 }
 
 for i = 1, 8 do

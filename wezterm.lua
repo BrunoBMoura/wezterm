@@ -42,6 +42,7 @@ config.enable_scroll_bar = false
 config.freetype_load_flags = "NO_HINTING"
 config.font_size = 14
 config.tab_max_width = 200
+-- config.front_end = "Software"
 
 config.font = wezterm.font({
   family = "JetBrainsMono",
