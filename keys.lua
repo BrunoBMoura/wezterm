@@ -10,15 +10,15 @@ local definitions = {
   { key = "-",          mods = "ALT",        action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
   { key = "/",          mods = "ALT",        action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
   { key = "r",          mods = "ALT",        action = act.ActivatePaneDirection("Next") },
-  { key = "j",          mods = "CTRL",       action = act.SendKey({ key = "DownArrow" }) },
-  { key = "k",          mods = "CTRL",       action = act.SendKey({ key = "UpArrow" }) },
+  --[[ { key = "j",          mods = "CTRL",       action = act.SendKey({ key = "DownArrow" }) },
+  { key = "k",          mods = "CTRL",       action = act.SendKey({ key = "UpArrow" }) }, ]]
 }
 
 for i = 1, 8 do
   table.insert(keys, {
     key = tostring(i),
     mods = 'ALT',
-    action = act.ActivateTab(i - 1),
+    action = act.ActivateTab(i-1),
   })
 end
 

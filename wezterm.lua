@@ -11,7 +11,7 @@ end
 
 -- Set the custom key bindings.
 config.keys = require("keys")
-config.colors = require("kanagawa_dragon")
+config.colors = require("palettes.plastlin")
 
 wezterm.on(
   "format-tab-title",
