@@ -7,11 +7,13 @@ local definitions = {
   { key = "LeftArrow",  mods = 'CTRL|SHIFT', action = act.MoveTabRelative(-1) },
   { key = "RightArrow", mods = 'CTRL|SHIFT', action = act.MoveTabRelative(1) },
   { key = 'H',          mods = 'CTRL|SHIFT', action = act.Search({ Regex = '[a-f0-9]{6,}' }) },
-  { key = "-",          mods = "ALT",        action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-  { key = "/",          mods = "ALT",        action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+  { key = "/",          mods = "ALT",        action = act.SplitPane({direction = "Right", size = {Percent = 40}}) },
+  { key = "-",          mods = "ALT",        action = act.SplitPane({direction = "Down", size = {Percent = 35}})  },
   { key = "r",          mods = "ALT",        action = act.ActivatePaneDirection("Next") },
-  --[[ { key = "j",          mods = "CTRL",       action = act.SendKey({ key = "DownArrow" }) },
-  { key = "k",          mods = "CTRL",       action = act.SendKey({ key = "UpArrow" }) }, ]]
+  { key = "l",          mods = "CTRL|ALT",   action = act.ActivatePaneDirection("Right") },
+  { key = "h",          mods = "CTRL|ALT",   action = act.ActivatePaneDirection("Left") },
+  { key = "k",          mods = "CTRL|ALT",   action = act.ActivatePaneDirection("Up") },
+  { key = "j",          mods = "CTRL|ALT",   action = act.ActivatePaneDirection("Down") },
 }
 
 for i = 1, 8 do
