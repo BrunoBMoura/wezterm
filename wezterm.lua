@@ -11,7 +11,7 @@ end
 
 -- Set the custom key bindings.
 config.keys = require("keys")
-config.colors = require("palettes.plastlin")
+config.colors = require("palettes.kanagawa_dragon")
 
 wezterm.on(
   "format-tab-title",
@@ -27,7 +27,7 @@ wezterm.on(
     cwd = cwd == "" and "<unknown>" or cwd
 
     return string.format(
-      "[%s:%s, at %s] ",
+      "|%s:%s, at %s ", -- "[%s:%s, at %s] ",
       tonumber(idx) + 1,
       helpers.parse_bin_path(fg_process),
       helpers.parse_cwd(cwd)
@@ -40,7 +40,7 @@ config.audible_bell = "Disabled"
 config.use_fancy_tab_bar = false
 config.enable_scroll_bar = false
 config.freetype_load_flags = "NO_HINTING"
-config.font_size = 14
+config.font_size = 13
 config.tab_max_width = 200
 -- config.front_end = "Software"
 
